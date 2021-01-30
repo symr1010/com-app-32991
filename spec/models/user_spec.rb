@@ -19,7 +19,7 @@ RSpec.describe User, type: :model do
     end
 
     context 'ユーザ登録ができない時' do
-      it "emailが空では登録できないこと" do
+      it 'emailが空では登録できないこと' do
         @user.email = nil
         @user.valid?
         expect(@user.errors.full_messages).to include("Email can't be blank")
@@ -38,7 +38,7 @@ RSpec.describe User, type: :model do
         expect(@user.errors.full_messages).to include('Email is invalid')
       end
 
-      it "passwordが空では登録できないこと" do
+      it 'passwordが空では登録できないこと' do
         @user.password = nil
         @user.valid?
         expect(@user.errors.full_messages).to include("Password can't be blank")
@@ -50,7 +50,7 @@ RSpec.describe User, type: :model do
         @user.valid?
         expect(@user.errors.full_messages).to include('Password is too short (minimum is 6 characters)')
       end
-      
+
       it 'passwordは、数字のみでは登録できないこと' do
         @user.password = '000000'
         @user.password_confirmation = '000000'
@@ -71,7 +71,7 @@ RSpec.describe User, type: :model do
         @user.valid?
         expect(@user.errors.full_messages).to include('Password には半角英数字混合文字を使用してください')
       end
-      
+
       it 'passwordは、確認用を含めて2回入力しないと登録できないこと' do
         @user.password_confirmation = ''
         @user.valid?
@@ -83,7 +83,7 @@ RSpec.describe User, type: :model do
         @user.valid?
         expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
       end
-      
+
       it 'nicknameが空では登録できないこと' do
         @user.nickname = nil
         @user.valid?
@@ -93,21 +93,20 @@ RSpec.describe User, type: :model do
       it 'ageが空では登録できないこと' do
         @user.age_id = nil
         @user.valid?
-        expect(@user.errors.full_messages).to include("Age Select")
+        expect(@user.errors.full_messages).to include('Age Select')
       end
 
       it 'sexが空では登録できないこと' do
         @user.sex_id = nil
         @user.valid?
-        expect(@user.errors.full_messages).to include("Sex Select")
+        expect(@user.errors.full_messages).to include('Sex Select')
       end
 
-      
       it 'professionが空では登録できないこと' do
         @user.profession = nil
         @user.valid?
         expect(@user.errors.full_messages).to include("Profession can't be blank")
       end
-    end  
-  end  
+    end
+  end
 end
