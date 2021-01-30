@@ -1,0 +1,43 @@
+<div class="main">
+  <div class="inner">
+    <div class="form__wrapper">
+      <h2 class="page-heading">ユーザー情報編集</h2>
+
+        <%# 「モデル名」にはUserモデルであれば@userを渡しましょう。%>
+        <%# 「新規登録機能へのパス」は、devise導入後にrails routesを実行してdevise/registrations#createへのパスを確認し、記載してください。 %>
+        <%= form_with model: current_user, local: true do |f| %>
+
+        <%# <%= render 'devise/shared/error_messages', model: f.object %> 
+
+        <div class="field">
+          <%= f.label :email, "メールアドレス" %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :nickname, "ニックネーム" %><br />
+          <%= f.text_field :nickname %>
+        </div>
+
+        <div class="field">
+          <%= f.label :age_id, "年齢" %><br />
+          <%= f.collection_select(:age_id, Age.all, :id, :name, {}, {class:"select-box", id:"user-age"}) %>
+        </div>
+
+        <div class="field">
+          <%= f.label :sex_id, "性別" %><br />
+          <%= f.collection_select(:sex_id, Sex.all, :id, :name, {}, {class:"select-box", id:"user-sex"}) %>
+        </div>
+
+        <div class="field">
+          <%= f.label :profession, "職業" %><br />
+          <%= f.text_field :profession %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "情報編集", class: :form__btn  %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
