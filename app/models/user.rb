@@ -9,7 +9,7 @@ class User < ApplicationRecord
 
   with_options presence: true do 
     PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i.freeze
-    validates :password, format: { with: PASSWORD_REGEX, message: 'はアルファベットと数字を含めてください' }, length: { minimum: 6 }, on: :create
+    validates_format_of :password, with: PASSWORD_REGEX, message: 'には半角英数字混合文字を使用してください', on: :create
     validates :nickname
     validates :profession
   end  
