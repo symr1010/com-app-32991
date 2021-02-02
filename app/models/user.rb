@@ -20,4 +20,5 @@ class User < ApplicationRecord
 
   belongs_to :age
   belongs_to :sex
+  has_many :guides
 end
