@@ -1,0 +1,18 @@
+<div class="card">
+  <p class="card__date">
+    <%= l guide.created_at %>
+  </p>  
+  <%= link_to guide.title, root_path, class: :card__title%>
+  <%= link_to image_tag(guide.image, class: :card__img ), root_path(guide.id)%>
+  <div class="card__body">
+    <p class="detail__title">活動内容</p>
+    <p class="card__summary">
+      <%= guide.content %>
+    </p>
+    <p class="detail__title">注意事項</p>
+    <p class="card__summary">
+      <%= guide.notice %>
+    </p>
+    <%= link_to "by " + guide.user.nickname, root_path, class: :card__user %>
+  </div>
+</div>

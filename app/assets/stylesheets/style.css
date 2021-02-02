@@ -170,11 +170,19 @@ textarea{
 .card__img {
   margin-bottom: 16px;
 }
+img {
+  max-width: 100%;
+  vertical-align: bottom;
+}
 .card__title {
   display: block;
   font-size: 20px;
   margin-bottom: 8px;
   font-weight: bold;
+  text-align: center;
+}
+.card__date {
+  text-align: right;
 }
 .card__summary {
   font-size: 16px;
