@@ -1,0 +1,26 @@
+<%= form_with(model: guide, local: true) do |f|%>
+<%= render 'devise/shared/error_messages', model: f.object %>
+  <div class="field">
+    <%= f.label :title, "案内板の名称" %><br />
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :content, "内容" %><br />
+    <%= f.text_area :content, class: :form__text %>
+  </div>
+
+  <div class="field">
+    <%= f.label :notice, "注意" %><br />
+    <%= f.text_area :notice, class: :form__text %>
+  </div>
+
+  <div class="field">
+    <%= f.label :image, "掲示板の画像" %><br />
+    <%= f.file_field :image %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "保存する", class: :form__btn  %>
+  </div>
+<% end %>
