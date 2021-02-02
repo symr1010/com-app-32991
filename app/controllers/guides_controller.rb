@@ -1,6 +1,7 @@
 class GuidesController < ApplicationController
   before_action :authenticate_user!, only: [:new] #:edit, :destroy
   def index
+    @guides = Guide.includes(:user).order('created_at DESC')
   end
 
   def new

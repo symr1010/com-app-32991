@@ -27,7 +27,6 @@ RSpec.describe Guide, type: :model do
     it '画像が空では登録できないこと' do
       @guide.image = nil
       @guide.valid?
-      binding.pry
       expect(@guide.errors.full_messages).to include("Image can't be blank")
     end
   end
