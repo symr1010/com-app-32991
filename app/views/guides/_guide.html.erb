@@ -2,8 +2,8 @@
   <p class="card__date">
     <%= l guide.created_at %>
   </p>  
-  <%= link_to guide.title, root_path, class: :card__title%>
-  <%= link_to image_tag(guide.image, class: :card__img ), root_path(guide.id)%>
+  <%= link_to guide.title, guide_path(guide.id), class: :card__title%>
+  <%= link_to image_tag(guide.image, class: :card__img ), guide_path(guide.id)%>
   <div class="card__body">
     <p class="detail__title">活動内容</p>
     <p class="card__summary">
