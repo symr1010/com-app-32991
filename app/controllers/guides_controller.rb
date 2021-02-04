@@ -21,6 +21,19 @@ class GuidesController < ApplicationController
     @guide = Guide.find(params[:id])
   end  
 
+  def edit
+    @guide = Guide.find(params[:id])
+  end
+
+  def update
+    @guide = Guide.find(params[:id])
+    if @guide.update(guide_params)
+      redirect_to guide_path
+    else
+      render :edit
+    end
+  end    
+
 
   private
   def guide_params
