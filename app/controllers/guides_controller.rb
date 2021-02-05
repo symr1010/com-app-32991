@@ -32,7 +32,13 @@ class GuidesController < ApplicationController
     else
       render :edit
     end
-  end    
+  end
+
+  def destroy
+    @guide = Guide.find(params[:id])
+    @guide.destroy
+    redirect_to root_path
+  end  
 
 
   private
