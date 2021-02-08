@@ -19,6 +19,8 @@ class GuidesController < ApplicationController
 
   def show
     @guide = Guide.find(params[:id])
+    @message = Message.new
+    @messages = @guide.messages.includes(:user)
   end  
 
   def edit
