@@ -13,6 +13,6 @@
     <p class="card__summary">
       <%= guide.notice %>
     </p>
-    <%= link_to "by " + guide.user.nickname, root_path, class: :card__user %>
+    <%= link_to "by " + guide.user.nickname, user_path(guide.user.id), class: :card__user %>
   </div>
 </div>

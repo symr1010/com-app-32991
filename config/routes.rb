@@ -4,5 +4,5 @@ Rails.application.routes.draw do
     resources :messages, only: :create
   end  
   root to: "guides#index"
-  resources :users, only: [:edit, :update]
+  resources :users, only: [:show, :edit, :update]
 end
