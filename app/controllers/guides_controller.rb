@@ -1,5 +1,7 @@
 class GuidesController < ApplicationController
-  before_action :authenticate_user!, only: [:new] #:edit, :destroy
+  before_action :authenticate_user!, only: [:new, :edit, :destroy] 
+  before_action :move_to_index, only: [:edit]
+  before_action :set_guide, only: [:edit, :show, :update, :destroy]
   def index
     @guides = Guide.includes(:user).order('created_at DESC')
   end
@@ -46,5 +48,16 @@ class GuidesController < ApplicationController
   private
   def guide_params
     params.require(:guide).permit(:title, :content, :notice, :image).merge(user_id: current_user.id)
+  end
+
+  def move_to_index
+    @guide = Guide.find(params[:id])
+    unless @guide.user_id == current_user.id
+      redirect_to action: :index
+    end
+  end
+
+  def set_guide
+    @guide = Guide.find(params[:id])
   end
 end
