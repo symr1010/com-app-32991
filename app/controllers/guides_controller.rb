@@ -1,5 +1,5 @@
 class GuidesController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :edit, :destroy] 
+  before_action :authenticate_user!, only: [:new, :edit, :destroy]
   before_action :move_to_index, only: [:edit]
   before_action :set_guide, only: [:edit, :show, :update, :destroy]
   def index
@@ -9,7 +9,7 @@ class GuidesController < ApplicationController
   def new
     @guide = Guide.new
   end
-  
+
   def create
     @guide = Guide.new(guide_params)
     if @guide.save
@@ -23,7 +23,7 @@ class GuidesController < ApplicationController
     @guide = Guide.find(params[:id])
     @message = Message.new
     @messages = @guide.messages.includes(:user)
-  end  
+  end
 
   def edit
     @guide = Guide.find(params[:id])
@@ -42,19 +42,17 @@ class GuidesController < ApplicationController
     @guide = Guide.find(params[:id])
     @guide.destroy
     redirect_to root_path
-  end  
-
+  end
 
   private
+
   def guide_params
     params.require(:guide).permit(:title, :content, :notice, :image).merge(user_id: current_user.id)
   end
 
   def move_to_index
     @guide = Guide.find(params[:id])
-    unless @guide.user_id == current_user.id
-      redirect_to action: :index
-    end
+    redirect_to action: :index unless @guide.user_id == current_user.id
   end
 
   def set_guide

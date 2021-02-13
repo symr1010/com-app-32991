@@ -3,7 +3,7 @@ class Guide < ApplicationRecord
     validates :title
     validates :content
     validates :image
-  end  
+  end
 
   belongs_to :user
   has_many   :messages

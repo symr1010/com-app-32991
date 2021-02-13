@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   def show
     @users = User.find(params[:id])
     @guides = @users.guides
-  end  
+  end
 
   def edit
   end
