@@ -8,4 +8,12 @@ class Guide < ApplicationRecord
   belongs_to :user
   has_many   :messages
   has_one_attached :image
+
+  def self.search(search)
+    if search != ""
+      Guide.where('title LIKE(?)', "%#{search}%")
+    else
+      Guide.all
+    end
+  end
 end

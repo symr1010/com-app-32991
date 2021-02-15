@@ -44,6 +44,10 @@ class GuidesController < ApplicationController
     redirect_to root_path
   end
 
+  def search
+    @guides = Guide.search(params[:keyword]).order('created_at DESC')
+  end
+
   private
 
   def guide_params
