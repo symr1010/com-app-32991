@@ -6,7 +6,7 @@ class Guide < ApplicationRecord
   end
 
   belongs_to :user
-  has_many   :messages
+  has_many   :messages, dependent: :destroy
   has_one_attached :image
 
   def self.search(search)
