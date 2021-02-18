@@ -1,0 +1,19 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+      guide: 案内板
+    attributes:
+      user:
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: 確認用パスワード
+        nickname: ニックネーム
+        profession: 職業
+        age_id: 年齢
+        sex_id: 性別
+      guide: 
+        title: 案内板の名称
+        content: 内容
+        image: 画像
+    

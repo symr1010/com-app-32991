@@ -13,7 +13,7 @@ class User < ApplicationRecord
     validates :profession
   end
 
-  with_options numericality: { other_than: 1, message: 'Select' } do
+  with_options numericality: { other_than: 1, message: 'を入力してください' } do
     validates :age_id
     validates :sex_id
   end
